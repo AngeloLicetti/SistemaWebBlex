@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlexDigital", "BlexDigital\BlexDigital.csproj", "{0E65308C-03A3-4696-977E-036FA1F63840}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E65308C-03A3-4696-977E-036FA1F63840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E65308C-03A3-4696-977E-036FA1F63840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E65308C-03A3-4696-977E-036FA1F63840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E65308C-03A3-4696-977E-036FA1F63840}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDFD6AFD-DB3D-4F84-882C-5D2E1D7B020A}
+	EndGlobalSection
+EndGlobal
