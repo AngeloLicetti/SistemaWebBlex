@@ -56,13 +56,21 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
             }
             Cotizacion cotizacion = new Cotizacion();
             cotizacion.SolCotizacion = solCotizacion;
-            cotizacion.DetalleCotiacions = new List<DetalleCotizacion>()
+            if (cotizacion.DetalleCotiacions == null)
             {
-                new DetalleCotizacion(),
-                new DetalleCotizacion(),
-                new DetalleCotizacion()
-            };
+                cotizacion.DetalleCotiacions = new List<DetalleCotizacion>()
+                {
+                    new DetalleCotizacion(),
+                    new DetalleCotizacion(),
+                    new DetalleCotizacion()
+                };
+            }
             return View(cotizacion);
+        }
+
+        public ActionResult ListaSolCotizacions()
+        {
+            return RedirectToAction("Index", "SolCotizacions");
         }
 
         // POST: Cotizacions/Create
@@ -70,12 +78,14 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CotizacionId,Mensaje,Dias,PrecioTotal, DetalleCotiacions")] Cotizacion cotizacion)
+        public ActionResult Create([Bind(Include = "CotizacionId,Mensaje,Dias,PrecioTotal, SolCotizacion, DetalleCotiacions")] Cotizacion cotizacion)
         {
             if (ModelState.IsValid)
             {
                 cotizacion.FechaCotizacion = DateTime.Now;
-                cotizacion.SolCotizacion.Estado = "Cotizada";
+                SolCotizacion solCotizacion = (from sc in db.SolCotizacions where sc.SolCotizacionId == cotizacion.SolCotizacion.SolCotizacionId select sc).FirstOrDefault(); ;
+                solCotizacion.Estado = "Cotizada";
+                cotizacion.SolCotizacion = solCotizacion;
                 db.Cotizacions.Add(cotizacion);
                 db.SaveChanges();
                 return RedirectToAction("Index");

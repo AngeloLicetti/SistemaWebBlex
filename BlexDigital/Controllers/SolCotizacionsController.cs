@@ -53,6 +53,21 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
             return View(solCotizacion);
         }
 
+        public ActionResult VerCotizacion(int? solCotizacionId)
+        {
+            if (solCotizacionId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            //Cotizacion cotizacion= db.Cotizacions.Find(solCotizacionId);
+            Cotizacion cotizacion = (from c in db.Cotizacions where c.SolCotizacion.SolCotizacionId == solCotizacionId select c).FirstOrDefault();
+            if (cotizacion == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cotizacion);
+        }
+
         // POST: SolCotizacions/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.

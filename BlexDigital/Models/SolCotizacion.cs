@@ -31,7 +31,7 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Models
 
         public DateTime FechaSolicitud { get; set; }
 
-        public ApplicationUser Cliente { get; set; }
+        public virtual ApplicationUser Cliente { get; set; }
 
         public SolCotizacion() { }
     }

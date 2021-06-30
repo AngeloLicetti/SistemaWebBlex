@@ -15,7 +15,7 @@
     <div class="form-horizontal">
         <h4>Cotizacion</h4>
         <hr />
-
+        @Html.HiddenFor(model => model.SolCotizacion.SolCotizacionId)
         <dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Dni)
@@ -167,7 +167,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "ListaSolCotizacions")
 </div>
 
 @section Scripts {

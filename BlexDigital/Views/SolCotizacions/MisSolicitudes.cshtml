@@ -85,10 +85,18 @@
                 @Html.DisplayFor(modelItem => item.CarritoDeCompras)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.SolCotizacionId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.SolCotizacionId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.SolCotizacionId }) |
-                @Html.ActionLink("Cotizar", "Cotizar", new { id = item.SolCotizacionId })
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.SolCotizacionId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.SolCotizacionId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.SolCotizacionId }) |
+        @Html.ActionLink("Cotizar", "Cotizar", new { id = item.SolCotizacionId })*@
+                @if (item.Estado == "Pendiente")
+                {
+                    @Html.ActionLink("Details", "Details", new { id = item.SolCotizacionId })
+}
+                @if (item.Estado == "Cotizada")
+                {
+                    @Html.ActionLink("Ver Cotizacion", "VerCotizacion", new { solCotizacionId = item.SolCotizacionId })
+}
             </td>
         </tr>
     }
