@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Sistema_de_gestion_comercial_Blex_Digital.Models;
 
 namespace BlexDigital.Models
 {
@@ -16,6 +17,10 @@ namespace BlexDigital.Models
             // Agregar aquí notificaciones personalizadas de usuario
             return userIdentity;
         }
+
+        public string Dni { get; set; }
+        public string Nombre { get; set; }
+        public string Celular { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -29,5 +34,12 @@ namespace BlexDigital.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<SolicitudCotizacion> SolicitudesCotizacion { get; set; }
+        public DbSet<Trabajador> Trabajadores { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<SolCotizacion> SolCotizacions { get; set; }
+        public DbSet<Cotizacion> Cotizacions { get; set; }
+        public DbSet<DetalleCotizacion> DetalleCotizacions { get; set; }
     }
 }

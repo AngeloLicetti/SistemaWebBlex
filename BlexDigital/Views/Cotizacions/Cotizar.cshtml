@@ -1,0 +1,175 @@
+﻿@model Sistema_de_gestion_comercial_Blex_Digital.Models.Cotizacion
+
+@{
+    ViewBag.Title = "Cotizar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cotizar</h2>
+
+
+@using (Html.BeginForm("Create", "Cotizacions", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Cotizacion</h4>
+        <hr />
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Dni)
+            </dt>
+        
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.NombreCliente)
+            </dt>
+        
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.CorreoDeContacto)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.CelularDeContacto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.NombreEmpresa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.DescripcionDelNegocio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.DescripcionDelNegocio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Mision)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.Mision)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Vision)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.Vision)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Direccion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.Direccion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.CorreoDeEmpresa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.CorreoDeEmpresa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.TelefonoDeEmpresa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.TelefonoDeEmpresa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.NumeroPaginas)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.NumeroPaginas)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.PaginaConCatalogo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.PaginaConCatalogo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.CarritoDeCompras)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.CarritoDeCompras)
+            </dd>
+
+        </dl>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mensaje, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Mensaje, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mensaje, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Dias, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Dias, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Dias, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PrecioTotal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PrecioTotal, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PrecioTotal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th>
+                    Actividad
+                </th>
+                <th>
+                    Precio
+                </th>
+            </tr>
+
+            @for (int i = 0; i < Model.DetalleCotiacions.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.EditorFor(model => model.DetalleCotiacions[i].NombreDetalle, new { htmlAttributes = new { @class = "form-control" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.DetalleCotiacions[i].PrecioDetalle, new { htmlAttributes = new { @class = "form-control" } })
+                    </td>
+                </tr>
+            }
+        </table>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

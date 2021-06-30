@@ -168,8 +168,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\CotizacionsController.cs" />
+    <Compile Include="Controllers\DetalleCotizacionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SolCotizacionsController.cs" />
+    <Compile Include="Controllers\SolicitudesCotizacionController.cs" />
+    <Compile Include="Controllers\TrabajadorsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,10 +183,20 @@
     <Compile Include="Migrations\202106292332020_soloEntity.Designer.cs">
       <DependentUpon>202106292332020_soloEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106300004103_modeloInicial.cs" />
+    <Compile Include="Migrations\202106300004103_modeloInicial.Designer.cs">
+      <DependentUpon>202106300004103_modeloInicial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Cotizacion.cs" />
+    <Compile Include="Models\DetalleCotizacion.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SolCotizacion.cs" />
+    <Compile Include="Models\SolicitudCotizacion.cs" />
+    <Compile Include="Models\Trabajador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -240,6 +256,37 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Cotizacions\Cotizar.cshtml" />
+    <Content Include="Views\Cotizacions\Create.cshtml" />
+    <Content Include="Views\Cotizacions\Delete.cshtml" />
+    <Content Include="Views\Cotizacions\Details.cshtml" />
+    <Content Include="Views\Cotizacions\Edit.cshtml" />
+    <Content Include="Views\Cotizacions\Index.cshtml" />
+    <Content Include="Views\DetalleCotizacions\Create.cshtml" />
+    <Content Include="Views\DetalleCotizacions\Delete.cshtml" />
+    <Content Include="Views\DetalleCotizacions\Details.cshtml" />
+    <Content Include="Views\DetalleCotizacions\Edit.cshtml" />
+    <Content Include="Views\DetalleCotizacions\Index.cshtml" />
+    <Content Include="Views\SolCotizacions\Create.cshtml" />
+    <Content Include="Views\SolCotizacions\Delete.cshtml" />
+    <Content Include="Views\SolCotizacions\Details.cshtml" />
+    <Content Include="Views\SolCotizacions\Edit.cshtml" />
+    <Content Include="Views\SolCotizacions\Index.cshtml" />
+    <Content Include="Views\SolicitudesCotizacion\Create.cshtml" />
+    <Content Include="Views\SolicitudesCotizacion\Delete.cshtml" />
+    <Content Include="Views\SolicitudesCotizacion\Details.cshtml" />
+    <Content Include="Views\SolicitudesCotizacion\Edit.cshtml" />
+    <Content Include="Views\SolicitudesCotizacion\Index.cshtml" />
+    <Content Include="Views\Trabajadors\Create.cshtml" />
+    <Content Include="Views\Trabajadors\Delete.cshtml" />
+    <Content Include="Views\Trabajadors\Details.cshtml" />
+    <Content Include="Views\Trabajadors\Edit.cshtml" />
+    <Content Include="Views\Trabajadors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -260,6 +307,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106292332020_soloEntity.resx">
       <DependentUpon>202106292332020_soloEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106300004103_modeloInicial.resx">
+      <DependentUpon>202106300004103_modeloInicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

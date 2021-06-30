@@ -1,0 +1,104 @@
+﻿@model Sistema_de_gestion_comercial_Blex_Digital.Models.SolCotizacion
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SolCotizacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreEmpresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreEmpresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripcionDelNegocio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionDelNegocio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorreoDeEmpresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoDeEmpresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefonoDeEmpresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefonoDeEmpresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroPaginas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroPaginas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaginaConCatalogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaginaConCatalogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarritoDeCompras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarritoDeCompras)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

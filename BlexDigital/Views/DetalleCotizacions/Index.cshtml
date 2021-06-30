@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Sistema_de_gestion_comercial_Blex_Digital.Models.DetalleCotizacion>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreDetalle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioDetalle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreDetalle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecioDetalle)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DetalleCotizacionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DetalleCotizacionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DetalleCotizacionId })
+        </td>
+    </tr>
+}
+
+</table>

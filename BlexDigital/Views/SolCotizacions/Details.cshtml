@@ -1,0 +1,110 @@
+﻿@model Sistema_de_gestion_comercial_Blex_Digital.Models.SolCotizacion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SolCotizacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Dni)
+        </dt>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.NombreCliente)
+        </dt>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.CorreoDeContacto)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.CelularDeContacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreEmpresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripcionDelNegocio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescripcionDelNegocio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorreoDeEmpresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoDeEmpresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefonoDeEmpresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefonoDeEmpresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroPaginas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroPaginas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaginaConCatalogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaginaConCatalogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarritoDeCompras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarritoDeCompras)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SolCotizacionId }) |
+    @Html.ActionLink("Back to List", "Index"))
+</p>
