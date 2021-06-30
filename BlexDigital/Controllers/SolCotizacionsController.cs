@@ -19,7 +19,7 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
         // GET: SolCotizacions
         public ActionResult Index()
         {
-            return View(db.SolCotizacions.ToList());
+            return View(db.SolCotizacions.Where(sc => sc.Estado == "Pendiente" || sc.Estado == "Cotizada").ToList());
         }
 
         // GET: SolCotizacions/MisSolicitudes

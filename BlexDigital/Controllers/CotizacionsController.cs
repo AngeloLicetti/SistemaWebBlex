@@ -21,6 +21,27 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
             return View(db.Cotizacions.ToList());
         }
 
+        public ActionResult ValidarAdelantos()
+        {
+            //return View(db.SolCotizacions.ToList());
+            return View(db.SolCotizacions.Where(c => c.Estado == "Por Validar").ToList());
+        }
+
+        public ActionResult ValidarAdelanto(int? solCotizacionId)
+        {
+            if (solCotizacionId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            //Cotizacion cotizacion= db.Cotizacions.Find(solCotizacionId);
+            Cotizacion cotizacion = (from c in db.Cotizacions where c.SolCotizacion.SolCotizacionId == solCotizacionId select c).FirstOrDefault();
+            if (cotizacion == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cotizacion);
+        }
+
         // GET: Cotizacions/Details/5
         public ActionResult Details(int? id)
         {
@@ -88,7 +109,7 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
                 cotizacion.SolCotizacion = solCotizacion;
                 db.Cotizacions.Add(cotizacion);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "SolCotizacions");
             }
 
             return View(cotizacion);

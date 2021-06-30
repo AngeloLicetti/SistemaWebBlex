@@ -297,6 +297,8 @@
     <Content Include="Views\Trabajadors\Index.cshtml" />
     <Content Include="Views\SolCotizacions\MisSolicitudes.cshtml" />
     <Content Include="Views\SolCotizacions\VerCotizacion.cshtml" />
+    <Content Include="Views\Cotizacions\ValidarAdelantos.cshtml" />
+    <Content Include="Views\Cotizacions\ValidarAdelanto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
