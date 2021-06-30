@@ -173,6 +173,7 @@
     <Compile Include="Controllers\DetalleCotizacionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SolCotizacionsController.cs" />
     <Compile Include="Controllers\SolicitudesCotizacionController.cs" />
     <Compile Include="Controllers\TrabajadorsController.cs" />
@@ -186,6 +187,10 @@
     <Compile Include="Migrations\202106300004103_modeloInicial.cs" />
     <Compile Include="Migrations\202106300004103_modeloInicial.Designer.cs">
       <DependentUpon>202106300004103_modeloInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106300232414_estadoSol.cs" />
+    <Compile Include="Migrations\202106300232414_estadoSol.Designer.cs">
+      <DependentUpon>202106300232414_estadoSol.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -287,9 +292,11 @@
     <Content Include="Views\Trabajadors\Details.cshtml" />
     <Content Include="Views\Trabajadors\Edit.cshtml" />
     <Content Include="Views\Trabajadors\Index.cshtml" />
+    <Content Include="Views\SolCotizacions\MisSolicitudes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -310,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106300004103_modeloInicial.resx">
       <DependentUpon>202106300004103_modeloInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106300232414_estadoSol.resx">
+      <DependentUpon>202106300232414_estadoSol.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

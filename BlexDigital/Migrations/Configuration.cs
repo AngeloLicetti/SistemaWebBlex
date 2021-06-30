@@ -1,5 +1,7 @@
 namespace BlexDigital.Migrations
 {
+    using BlexDigital.Models;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Sistema_de_gestion_comercial_Blex_Digital.Models;
     using System;
     using System.Data.Entity;
@@ -31,6 +33,12 @@ namespace BlexDigital.Migrations
                     new Trabajador { Id = 1, Dni = "72263833", Nombre = "Federico", ApellidoPaterno = "Perez", ApellidoMaterno = "Leon", Puesto = "Desarrollador", Sueldo = 1500.00 },
                     new Trabajador { Id = 2, Dni = "6453521", Nombre = "Luis", ApellidoPaterno = "Farfan", ApellidoMaterno = "Beingolea", Puesto = "Disenador", Sueldo = 1200.00 },
                     new Trabajador { Id = 3, Dni = "72630638", Nombre = "Angelo", ApellidoPaterno = "Licetti", ApellidoMaterno = "Leon", Puesto = "Proyect Manager", Sueldo = 1300.00 }
+            );
+
+            context.Roles.AddOrUpdate(
+                u => u.Id,
+                    new IdentityRole { Id = "1", Name = "Admin"},
+                    new IdentityRole { Id = "2", Name = "Cliente" }
             );
         }
     }

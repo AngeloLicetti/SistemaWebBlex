@@ -21,6 +21,13 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
             return View(db.SolCotizacions.ToList());
         }
 
+        // GET: SolCotizacions/MisSolicitudes
+        public ActionResult MisSolicitudes()
+        {
+            string userName = HttpContext.User.Identity.Name;
+            return View(db.SolCotizacions.Where(x => x.Cliente.UserName == userName).ToList());
+        }
+
         // GET: SolCotizacions/Details/5
         public ActionResult Details(int? id)
         {
@@ -39,7 +46,11 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
         // GET: SolCotizacions/Create
         public ActionResult Create()
         {
-            return View();
+            string userName = HttpContext.User.Identity.Name;
+            ApplicationUser user = (from u in db.Users where u.UserName == userName select u).FirstOrDefault();
+            SolCotizacion solCotizacion = new SolCotizacion();
+            solCotizacion.Cliente = user;
+            return View(solCotizacion);
         }
 
         // POST: SolCotizacions/Create
@@ -51,9 +62,17 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
         {
             if (ModelState.IsValid)
             {
+                string userName = HttpContext.User.Identity.Name;
+                ApplicationUser user = (from u in db.Users where u.UserName == userName select u).FirstOrDefault();
+                user.Dni = solCotizacion.Cliente.Dni;
+                user.Nombre = solCotizacion.Cliente.Nombre;
+                user.Celular = solCotizacion.Cliente.Celular;
+                solCotizacion.Cliente = user;
+                solCotizacion.FechaSolicitud = DateTime.Now;
+                solCotizacion.Estado = "Pendiente";
                 db.SolCotizacions.Add(solCotizacion);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("MisSolicitudes");
             }
 
             return View(solCotizacion);

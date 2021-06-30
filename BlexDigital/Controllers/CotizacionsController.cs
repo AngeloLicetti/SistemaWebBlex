@@ -74,6 +74,8 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
         {
             if (ModelState.IsValid)
             {
+                cotizacion.FechaCotizacion = DateTime.Now;
+                cotizacion.SolCotizacion.Estado = "Cotizada";
                 db.Cotizacions.Add(cotizacion);
                 db.SaveChanges();
                 return RedirectToAction("Index");

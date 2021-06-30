@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -26,11 +27,12 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Models
         public int NumeroPaginas { get; set; }
         public bool PaginaConCatalogo { get; set; }
         public bool CarritoDeCompras { get; set; }
+        public string Estado { get; set; }
 
         public DateTime FechaSolicitud { get; set; }
 
-        public virtual ApplicationUser Cliente { get; set; }
-        
+        public ApplicationUser Cliente { get; set; }
+
         public SolCotizacion() { }
     }
 }

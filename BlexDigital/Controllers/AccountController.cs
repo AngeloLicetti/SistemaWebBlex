@@ -9,12 +9,14 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BlexDigital.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace BlexDigital.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -152,6 +154,8 @@ namespace BlexDigital.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                IdentityUserRole userRole = new IdentityUserRole { UserId = user.Id, RoleId = "2" };
+                user.Roles.Add(userRole);
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
