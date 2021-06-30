@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -66,6 +67,36 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
                 return HttpNotFound();
             }
             return View(cotizacion);
+        }
+
+        [HttpPost]
+        public ActionResult IngresarComprobanteAdelanto(Cotizacion cotizacion, HttpPostedFileBase file)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+
+                    //Method 2 Get file details from HttpPostedFileBase class    
+
+                    if (file != null)
+                    {
+                        string path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(file.FileName));
+                        file.SaveAs(path);
+                        cotizacion = db.Cotizacions.Find(cotizacion.CotizacionId);
+                        cotizacion.File = path;
+                        cotizacion.SolCotizacion.Estado = "Por Validar";
+                        db.Entry(cotizacion).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    ViewBag.FileStatus = "File uploaded successfully.";
+                }
+                catch (Exception)
+                {
+                    ViewBag.FileStatus = "Error while file uploading."; ;
+                }
+            }
+            return RedirectToAction("MisSolicitudes");
         }
 
         // POST: SolCotizacions/Create

@@ -7,169 +7,200 @@
 
 <h2>VerCotizacion</h2>
 
-<div>
-    <h4>Cotizacion</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <h2>DATOS DE LA SOLICITUD</h2>
-        <dt>
-            @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Dni)
-        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Nombre)
-        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Email)
-        </dt>
+@using (Html.BeginForm("IngresarComprobanteAdelanto", "SolCotizacions", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Celular)
-        </dt>
+    @Html.HiddenFor(model => model.CotizacionId)
+    <div>
+        <h4>Cotizacion</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <h2>DATOS DE LA SOLICITUD</h2>
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Dni)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SolCotizacion.NombreEmpresa)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Nombre)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SolCotizacion.DescripcionDelNegocio)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Email)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SolCotizacion.DescripcionDelNegocio)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Celular)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SolCotizacion.Mision)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.NombreEmpresa)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SolCotizacion.Mision)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.DescripcionDelNegocio)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SolCotizacion.Vision)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.DescripcionDelNegocio)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SolCotizacion.Vision)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Mision)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SolCotizacion.Direccion)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.Mision)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SolCotizacion.Direccion)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Vision)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SolCotizacion.CorreoDeEmpresa)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.Vision)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SolCotizacion.CorreoDeEmpresa)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.Direccion)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SolCotizacion.TelefonoDeEmpresa)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.Direccion)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SolCotizacion.TelefonoDeEmpresa)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.CorreoDeEmpresa)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SolCotizacion.NumeroPaginas)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.CorreoDeEmpresa)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SolCotizacion.NumeroPaginas)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.TelefonoDeEmpresa)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SolCotizacion.PaginaConCatalogo)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.TelefonoDeEmpresa)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SolCotizacion.PaginaConCatalogo)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.NumeroPaginas)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SolCotizacion.CarritoDeCompras)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.NumeroPaginas)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SolCotizacion.CarritoDeCompras)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.PaginaConCatalogo)
+            </dt>
 
-    </dl>
-    <dl class="dl-horizontal">
-        <h2>DATOS DE LA COTIZACIÓN</h2>
-        <dt>
-            @Html.DisplayNameFor(model => model.Mensaje)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.PaginaConCatalogo)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Mensaje)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SolCotizacion.CarritoDeCompras)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Dias)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SolCotizacion.CarritoDeCompras)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Dias)
-        </dd>
+        </dl>
+        <dl class="dl-horizontal">
+            <h2>DATOS DE LA COTIZACIÓN</h2>
+            <dt>
+                @Html.DisplayNameFor(model => model.Mensaje)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PrecioTotal)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Mensaje)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PrecioTotal)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Dias)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaCotizacion)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Dias)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaCotizacion)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PrecioTotal)
+            </dt>
 
-    </dl>
-</div>
-<table class="table">
-    <tr>
-        <th>
-            Detalle cotización
-        </th>
-        <th>
-            Precio
-        </th>
-        @*<th></th>*@
-    </tr>
+            <dd>
+                @Html.DisplayFor(model => model.PrecioTotal)
+            </dd>
 
-    @foreach (var item in Model.DetalleCotiacions)
-    {
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaCotizacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaCotizacion)
+            </dd>
+
+        </dl>
+    </div>
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreDetalle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecioDetalle)
-            </td>
-            @*<td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.DetalleCotizacionId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.DetalleCotizacionId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.DetalleCotizacionId })
-            </td>*@
+            <th>
+                Detalle cotización
+            </th>
+            <th>
+                Precio
+            </th>
+            @*<th></th>*@
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model.DetalleCotiacions)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreDetalle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrecioDetalle)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.DetalleCotizacionId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.DetalleCotizacionId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.DetalleCotizacionId })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.File, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.File, new { htmlAttributes = new { @class = "form-control", @type = "File" } })
+                @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Upload" class="btn btn-primary" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 text-success">
+                @ViewBag.FileStatus
+            </div>
+        </div>
+    </div>
+}
 
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.CotizacionId }) |*@

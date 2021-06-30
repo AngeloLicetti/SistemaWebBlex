@@ -14,6 +14,7 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Models
         public int Dias { get; set; }
         public double PrecioTotal { get; set; }
         public DateTime FechaCotizacion { get; set; }
+        public string File { get; set; }
         public virtual List<DetalleCotizacion> DetalleCotiacions { get; set; }
 
         public virtual SolCotizacion SolCotizacion { get; set; }
