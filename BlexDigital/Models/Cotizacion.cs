@@ -12,8 +12,11 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Models
         [DataType(DataType.MultilineText)]
         public string Mensaje { get; set; }
         public int Dias { get; set; }
+        [Display(Name = "Precio total")]
         public double PrecioTotal { get; set; }
+        [Display(Name = "Fecha de cotización")]
         public DateTime FechaCotizacion { get; set; }
+        [Display(Name = "Comprobante de pago")]
         public string File { get; set; }
         public virtual List<DetalleCotizacion> DetalleCotiacions { get; set; }
 

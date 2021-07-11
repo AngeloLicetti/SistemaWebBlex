@@ -18,13 +18,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("SGCBD", "Inicio", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 @if (HttpContext.Current.User.IsInRole("Cliente"))
                 {
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Inicio", "Inicio", "Home")</li>
                         <li>@Html.ActionLink("Cotizar", "MisSolicitudes", "SolCotizacions")</li>
                         <li>@Html.ActionLink("Mis proyectos", "MisProyectos", "Proyectos")</li>
                     </ul>
@@ -32,7 +32,7 @@
                 @if (HttpContext.Current.User.IsInRole("Admin")|| HttpContext.Current.User.IsInRole("PM"))
                 {
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Inicio", "Inicio", "Home")</li>
                         <li>@Html.ActionLink("Solicitudes de cotizacion", "Index", "SolCotizacions")</li>
                         <li>@Html.ActionLink("Validar adelantos", "ValidarAdelantos", "Cotizacions")</li>
                         <li>@Html.ActionLink("Proyectos", "Index", "Proyectos")</li>
@@ -46,7 +46,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>Copyright &copy; @DateTime.Now.Year Blex Digital | Todos los derechos reservados</p>
         </footer>
     </div>
 

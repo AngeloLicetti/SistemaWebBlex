@@ -10,7 +10,24 @@ namespace BlexDigital.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Inicio");
+        }
+
+        [Authorize]
+        public ActionResult Inicio()
+        {
+            if (User.IsInRole("Cliente"))
+            {
+                return RedirectToAction("MisSolicitudes", "SolCotizacions");
+            }
+            else if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Index", "SolCotizacions");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult About()
