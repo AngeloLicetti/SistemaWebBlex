@@ -19,7 +19,11 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
         // GET: SolCotizacions
         public ActionResult Index()
         {
-            return View(db.SolCotizacions.Where(sc => sc.Estado == "Pendiente" || sc.Estado == "Cotizada").ToList());
+            if (User.IsInRole("Cliente"))
+            {
+                return RedirectToAction("MisSolicitudes");
+            }
+            return View(db.SolCotizacions.Where(sc => sc.Estado == "Pendiente" || sc.Estado == "Cotizada").OrderByDescending(sc => sc.Estado).ToList());
         }
 
         // GET: SolCotizacions/MisSolicitudes
@@ -84,7 +88,7 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
                         string path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(file.FileName));
                         file.SaveAs(path);
                         cotizacion = db.Cotizacions.Find(cotizacion.CotizacionId);
-                        cotizacion.File = path;
+                        cotizacion.File = "~/UploadedFiles/"+file.FileName;
                         cotizacion.SolCotizacion.Estado = "Por Validar";
                         db.Entry(cotizacion).State = EntityState.Modified;
                         db.SaveChanges();
@@ -118,7 +122,7 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
                 solCotizacion.Estado = "Pendiente";
                 db.SolCotizacions.Add(solCotizacion);
                 db.SaveChanges();
-                return RedirectToAction("MisSolicitudes");
+                return RedirectToAction("Index");
             }
 
             return View(solCotizacion);

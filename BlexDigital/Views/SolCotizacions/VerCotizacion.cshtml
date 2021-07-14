@@ -1,11 +1,11 @@
 ﻿@model Sistema_de_gestion_comercial_Blex_Digital.Models.Cotizacion
 
 @{
-    ViewBag.Title = "VerCotizacion";
+    ViewBag.Title = "Ver Cotizacion";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>VerCotizacion</h2>
+<h2>Ver Cotizacion</h2>
 
 
 
@@ -180,6 +180,7 @@
 
     <div class="form-horizontal">
         <hr />
+        <h2>SUBIR COMPROBANTE DE PAGO</h2>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.File, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -188,10 +189,9 @@
                 @Html.ValidationMessageFor(model => model.File, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Upload" class="btn btn-primary" />
+                <input type="submit" value="Subir comprobante" class="btn btn-primary" />
             </div>
         </div>
         <div class="form-group">

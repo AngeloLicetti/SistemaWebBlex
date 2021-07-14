@@ -1,33 +1,22 @@
 ﻿@model IEnumerable<Sistema_de_gestion_comercial_Blex_Digital.Models.SolCotizacion>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Solicitudes de cotización";
 }
 
-<h2>Index</h2>
+<h2>Solicitudes de cotización</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nueva Solicitud", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>Acciones</th>
         <th>
             Estado
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NombreEmpresa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DescripcionDelNegocio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Mision)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Vision)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Direccion)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CorreoDeEmpresa)
@@ -50,22 +39,23 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @if (item.Estado == "Pendiente")
+            {
+                @Html.ActionLink("Cotizar", "Cotizar", new { id = item.SolCotizacionId })
+            }
+            else
+            {
+                @Html.ActionLink("Detalles", "Details", new { id = item.SolCotizacionId })
+            }
+            @*@Html.ActionLink("Editar", "Edit", new { id=item.SolCotizacionId }) |*@
+            
+            @*@Html.ActionLink("Eliminar", "Delete", new { id = item.SolCotizacionId })*@
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Estado)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NombreEmpresa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DescripcionDelNegocio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mision)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Vision)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Direccion)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CorreoDeEmpresa)
@@ -81,12 +71,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CarritoDeCompras)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SolCotizacionId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SolCotizacionId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SolCotizacionId }) |
-            @Html.ActionLink("Cotizar", "Cotizar", new { id=item.SolCotizacionId })
         </td>
     </tr>
 }

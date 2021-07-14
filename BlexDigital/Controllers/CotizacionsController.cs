@@ -106,6 +106,11 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
                 cotizacion.FechaCotizacion = DateTime.Now;
                 SolCotizacion solCotizacion = (from sc in db.SolCotizacions where sc.SolCotizacionId == cotizacion.SolCotizacion.SolCotizacionId select sc).FirstOrDefault(); ;
                 solCotizacion.Estado = "Cotizada";
+                cotizacion.PrecioTotal = 0;
+                foreach (DetalleCotizacion detalle in cotizacion.DetalleCotiacions)
+                {
+                    cotizacion.PrecioTotal += detalle.PrecioDetalle;
+                }
                 cotizacion.SolCotizacion = solCotizacion;
                 db.Cotizacions.Add(cotizacion);
                 db.SaveChanges();

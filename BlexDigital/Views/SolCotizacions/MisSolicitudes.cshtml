@@ -7,98 +7,82 @@
 
 <h2>Mis Solicitudes de Cotización</h2>
 
-<p>
-    @Html.ActionLink("Nueva Solicitud", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Estado
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NombreEmpresa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DescripcionDelNegocio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Mision)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Vision)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Direccion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CorreoDeEmpresa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TelefonoDeEmpresa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumeroPaginas)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PaginaConCatalogo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CarritoDeCompras)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
+@if (Model.Count() > 0)
+{
+    <p>
+        @Html.ActionLink("Nueva Solicitud", "Create")
+    </p>
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreEmpresa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescripcionDelNegocio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mision)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Vision)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Direccion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CorreoDeEmpresa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TelefonoDeEmpresa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumeroPaginas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PaginaConCatalogo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CarritoDeCompras)
-            </td>
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.SolCotizacionId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.SolCotizacionId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.SolCotizacionId }) |
-        @Html.ActionLink("Cotizar", "Cotizar", new { id = item.SolCotizacionId })*@
-                @if (item.Estado == "Pendiente")
-                {
-                    @Html.ActionLink("Details", "Details", new { id = item.SolCotizacionId })
-}
-                @if (item.Estado == "Cotizada")
-                {
-                    @Html.ActionLink("Ver Cotizacion", "VerCotizacion", new { solCotizacionId = item.SolCotizacionId })
-}
-            </td>
+            <th>Acciones</th>
+            <th>
+                Estado
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CorreoDeEmpresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoDeEmpresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroPaginas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaginaConCatalogo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarritoDeCompras)
+            </th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.SolCotizacionId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.SolCotizacionId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.SolCotizacionId }) |
+                        @Html.ActionLink("Cotizar", "Cotizar", new { id = item.SolCotizacionId })*@
+                    @if (item.Estado == "Pendiente")
+                    {
+                        @Html.ActionLink("Detalles", "Details", new { id = item.SolCotizacionId })
+                    }
+                    @if (item.Estado == "Cotizada")
+                    {
+                        @Html.ActionLink("Ver Cotizacion", "VerCotizacion", new { solCotizacionId = item.SolCotizacionId })
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CorreoDeEmpresa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelefonoDeEmpresa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroPaginas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaginaConCatalogo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarritoDeCompras)
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <p>
+        Aún no tienes solicitudes, crea una:
+    </p>
+    <p>
+        @Html.ActionLink("Nueva Solicitud", "Create")
+    </p>
+    }
