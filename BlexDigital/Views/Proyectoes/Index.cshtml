@@ -1,0 +1,34 @@
+﻿@model IEnumerable<BlexDigital.Models.Proyecto>
+
+@{
+    ViewBag.Title = "Proyectos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Proyectos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaCreacion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProyectoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProyectoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProyectoId })
+        </td>
+    </tr>
+}
+
+</table>

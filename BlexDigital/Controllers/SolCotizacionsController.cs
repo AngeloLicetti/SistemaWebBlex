@@ -128,6 +128,24 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
             return View(solCotizacion);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AprobarValidacionComprobante(Cotizacion cotizacion)
+        {
+            if (ModelState.IsValid)
+            {
+                Proyecto proyecto = new Proyecto();
+                proyecto.FechaCreacion= DateTime.Now;
+                db.Proyectos.Add(proyecto);
+                db.SaveChanges();
+                return RedirectToAction("Index","Proyectoes");
+            }
+
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
+
+        
+
         // GET: SolCotizacions/Edit/5
         public ActionResult Edit(int? id)
         {

@@ -173,6 +173,7 @@
     <Compile Include="Controllers\DetalleCotizacionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProyectoesController.cs" />
     <Compile Include="Controllers\SolCotizacionsController.cs" />
     <Compile Include="Controllers\SolicitudesCotizacionController.cs" />
     <Compile Include="Controllers\TrabajadorsController.cs" />
@@ -195,6 +196,10 @@
     <Compile Include="Migrations\202106300834077_campoFile.Designer.cs">
       <DependentUpon>202106300834077_campoFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107140716415_proyecto-v1.cs" />
+    <Compile Include="Migrations\202107140716415_proyecto-v1.Designer.cs">
+      <DependentUpon>202107140716415_proyecto-v1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -202,6 +207,7 @@
     <Compile Include="Models\DetalleCotizacion.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Proyecto.cs" />
     <Compile Include="Models\SolCotizacion.cs" />
     <Compile Include="Models\SolicitudCotizacion.cs" />
     <Compile Include="Models\Trabajador.cs" />
@@ -299,6 +305,11 @@
     <Content Include="Views\SolCotizacions\VerCotizacion.cshtml" />
     <Content Include="Views\Cotizacions\ValidarAdelantos.cshtml" />
     <Content Include="Views\Cotizacions\ValidarAdelanto.cshtml" />
+    <Content Include="Views\Proyectoes\Create.cshtml" />
+    <Content Include="Views\Proyectoes\Delete.cshtml" />
+    <Content Include="Views\Proyectoes\Details.cshtml" />
+    <Content Include="Views\Proyectoes\Edit.cshtml" />
+    <Content Include="Views\Proyectoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -330,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106300834077_campoFile.resx">
       <DependentUpon>202106300834077_campoFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107140716415_proyecto-v1.resx">
+      <DependentUpon>202107140716415_proyecto-v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

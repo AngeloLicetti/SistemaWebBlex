@@ -6,7 +6,7 @@
 }
 
 <h2>Validar Adelanto</h2>
-@using (Html.BeginForm("IngresarComprobanteAdelanto", "SolCotizacions", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("AprobarValidacionComprobante", "SolCotizacions", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 

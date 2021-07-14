@@ -41,5 +41,6 @@ namespace BlexDigital.Models
         public DbSet<SolCotizacion> SolCotizacions { get; set; }
         public DbSet<Cotizacion> Cotizacions { get; set; }
         public DbSet<DetalleCotizacion> DetalleCotizacions { get; set; }
+        public DbSet<Proyecto> Proyectos { get; set; }
     }
 }
