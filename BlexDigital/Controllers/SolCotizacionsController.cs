@@ -130,12 +130,16 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AprobarValidacionComprobante(Cotizacion cotizacion)
+        public ActionResult AprobarValidacionComprobante([Bind(Include = "CotizacionId,Mensaje,Dias,PrecioTotal, SolCotizacion, DetalleCotiacions")] Cotizacion cotizacion)
         {
             if (ModelState.IsValid)
             {
                 Proyecto proyecto = new Proyecto();
+                SolCotizacion solCotizacion = (from sc in db.SolCotizacions where sc.SolCotizacionId == cotizacion.SolCotizacion.SolCotizacionId select sc).FirstOrDefault();
+                proyecto.NombreProyecto = solCotizacion.NombreEmpresa;
                 proyecto.FechaCreacion= DateTime.Now;
+                solCotizacion.Estado = "Validada";
+                db.Entry(solCotizacion).State = EntityState.Modified;
                 db.Proyectos.Add(proyecto);
                 db.SaveChanges();
                 return RedirectToAction("Index","Proyectoes");

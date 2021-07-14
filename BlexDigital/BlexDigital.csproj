@@ -200,6 +200,10 @@
     <Compile Include="Migrations\202107140716415_proyecto-v1.Designer.cs">
       <DependentUpon>202107140716415_proyecto-v1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107140721005_proyecto-nombre.cs" />
+    <Compile Include="Migrations\202107140721005_proyecto-nombre.Designer.cs">
+      <DependentUpon>202107140721005_proyecto-nombre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -344,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107140716415_proyecto-v1.resx">
       <DependentUpon>202107140716415_proyecto-v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107140721005_proyecto-nombre.resx">
+      <DependentUpon>202107140721005_proyecto-nombre.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
