@@ -121,10 +121,10 @@
         </div>
     </div>
 
-    <h2>Elija un estilo de página web</h2>
+    <h2>Elija un estilo de página web (haz clic en la imagen)</h2>
     <div class="col-md-4">
         @Html.RadioButtonFor(s => s.TipoWeb, TipoDeWeb.Ecommerce)@Html.Label("Ecommerce")<br />
-        <img src="~/UploadedFiles/Ecommerce.jpg" width="350" data-toggle="modal" data-target="#modalEcommerce"/>
+        <img src="https://res.cloudinary.com/dte7upwcr/image/upload/blog/blog2/guia-para-ecommerce/image_0-guia-basica-para-ecommerce.png" width="350" data-toggle="modal" data-target="#modalEcommerce"/>
         <div id="modalEcommerce" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -139,12 +139,12 @@
     </div>
     <div class="col-md-4">
         @Html.RadioButtonFor(s => s.TipoWeb, TipoDeWeb.SinglePage)@Html.Label("Web informativa de una sola página (single page)")<br />
-        <img src="~/UploadedFiles/SinglePage.jpg" width="350" data-toggle="modal" data-target="#modalSinglePage" />
+        <img src="https://smartslider3.com/wp-content/uploads/2019/07/onepage.png" width="350" data-toggle="modal" data-target="#modalSinglePage" />
         <div id="modalSinglePage" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <iframe src="https://eygo.pe/"
+                        <iframe src="https://academiainvencible.com/"
                                 width="1000" height="700" frameborder="1"></iframe>
                     </div>
                 </div>
@@ -154,12 +154,12 @@
     </div>
     <div class="col-md-4">
         @Html.RadioButtonFor(s => s.TipoWeb, TipoDeWeb.MultiPage)@Html.Label("Web informativa con múltiples páginas")<br />
-        <img src="~/UploadedFiles/MultiPage.jpg" width="350" data-toggle="modal" data-target="#modalMultiPage" />
+        <img src="https://assets-global.website-files.com/6009ec8cda7f305645c9d91b/602f2109a787c146dcbe2b66_601b1c1f7567a7399353fe47_traackr.jpeg" width="350" data-toggle="modal" data-target="#modalMultiPage" />
         <div id="modalMultiPage" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <iframe src="https://igcertperu.com/"
+                        <iframe src="https://www.munizlaw.com/"
                                 width="1000" height="700" frameborder="1"></iframe>
                     </div>
                 </div>
@@ -170,6 +170,8 @@
 
     <div class="form-group">
         <div class="col-md-10">
+            <p></p>
+            <p></p>
             <p>Comentarios adicionales</p>
             @Html.EditorFor(model => model.DetallesAdicionales, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.DetallesAdicionales, "", new { @class = "text-danger" })
