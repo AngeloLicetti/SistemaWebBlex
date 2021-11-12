@@ -16,100 +16,115 @@
         <h4>Cotizacion</h4>
         <hr />
         @Html.HiddenFor(model => model.SolCotizacion.SolCotizacionId)
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Dni)
-            </dt>
-        
-            <dt>
-                @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Nombre)
-            </dt>
-        
-            <dt>
-                @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Email)
-            </dt>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Dni)
+        </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Celular)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Nombre)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SolCotizacion.NombreEmpresa)
-            </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Email)
+        </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SolCotizacion.DescripcionDelNegocio)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.Cliente.Celular)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SolCotizacion.DescripcionDelNegocio)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.SolCotizacion.NombreEmpresa)
+        </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SolCotizacion.Mision)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.DescripcionDelNegocio)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SolCotizacion.Mision)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.SolCotizacion.DescripcionDelNegocio)
+        </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SolCotizacion.Vision)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.Mision)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SolCotizacion.Vision)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.SolCotizacion.Mision)
+        </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SolCotizacion.Direccion)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.Vision)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SolCotizacion.Direccion)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.SolCotizacion.Vision)
+        </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SolCotizacion.CorreoDeEmpresa)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.Direccion)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SolCotizacion.CorreoDeEmpresa)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.SolCotizacion.Direccion)
+        </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SolCotizacion.TelefonoDeEmpresa)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.CorreoDeEmpresa)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SolCotizacion.TelefonoDeEmpresa)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.SolCotizacion.CorreoDeEmpresa)
+        </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SolCotizacion.NumeroPaginas)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.TelefonoDeEmpresa)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SolCotizacion.NumeroPaginas)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.SolCotizacion.TelefonoDeEmpresa)
+        </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SolCotizacion.PaginaConCatalogo)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.NumeroPaginas)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SolCotizacion.PaginaConCatalogo)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.SolCotizacion.NumeroPaginas)
+        </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.SolCotizacion.CarritoDeCompras)
-            </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.PaginaConCatalogo)
+        </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.SolCotizacion.CarritoDeCompras)
-            </dd>
+        <dd>
+            @Html.DisplayFor(model => model.SolCotizacion.PaginaConCatalogo)
+        </dd>
 
-        </dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.CarritoDeCompras)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SolCotizacion.CarritoDeCompras)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.TipoWeb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SolCotizacion.TipoWeb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SolCotizacion.DetallesAdicionales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SolCotizacion.DetallesAdicionales)
+        </dd>
+    </dl>
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

@@ -1,6 +1,7 @@
 namespace BlexDigital.Migrations
 {
     using BlexDigital.Models;
+    using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Sistema_de_gestion_comercial_Blex_Digital.Models;
     using System;
@@ -40,6 +41,23 @@ namespace BlexDigital.Migrations
                     new IdentityRole { Id = "1", Name = "Admin"},
                     new IdentityRole { Id = "2", Name = "Cliente" }
             );
+
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            UserManager.UserValidator = new UserValidator<ApplicationUser>(UserManager)
+            {
+                AllowOnlyAlphanumericUserNames = false,
+                RequireUniqueEmail = true
+            };
+            IdentityRole rolAdmin = (from c in context.Roles where c.Name == "Admin" select c).FirstOrDefault();
+            ApplicationUser objUser = UserManager.FindByEmail("angelo.licetti.00@gmail.com");
+            if (objUser == null)
+            {
+                objUser = new ApplicationUser();
+                objUser.Email = "angelo.licetti.00@gmail.com";
+                objUser.UserName = "angelo.licetti.00@gmail.com";
+                UserManager.Create(objUser, "panConPollo#2021");
+            }
+            UserManager.AddToRole(objUser.Id, rolAdmin.Name);
         }
     }
 }

@@ -204,6 +204,10 @@
     <Compile Include="Migrations\202107140721005_proyecto-nombre.Designer.cs">
       <DependentUpon>202107140721005_proyecto-nombre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107142002583_tipoDeWebYDetallesAdicionales.cs" />
+    <Compile Include="Migrations\202107142002583_tipoDeWebYDetallesAdicionales.Designer.cs">
+      <DependentUpon>202107142002583_tipoDeWebYDetallesAdicionales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -214,6 +218,7 @@
     <Compile Include="Models\Proyecto.cs" />
     <Compile Include="Models\SolCotizacion.cs" />
     <Compile Include="Models\SolicitudCotizacion.cs" />
+    <Compile Include="Models\TipoDeWeb.cs" />
     <Compile Include="Models\Trabajador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -229,6 +234,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -351,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107140721005_proyecto-nombre.resx">
       <DependentUpon>202107140721005_proyecto-nombre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107142002583_tipoDeWebYDetallesAdicionales.resx">
+      <DependentUpon>202107142002583_tipoDeWebYDetallesAdicionales.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

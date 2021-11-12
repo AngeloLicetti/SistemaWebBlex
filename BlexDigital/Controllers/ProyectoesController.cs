@@ -17,7 +17,8 @@ namespace BlexDigital.Controllers
         // GET: Proyectoes
         public ActionResult Index()
         {
-            return View(db.Proyectos.ToList());
+            List<Proyecto> proyectos = db.Proyectos.Include(p => p.Cotizacion).ToList();
+            return View(proyectos);
         }
 
         // GET: Proyectoes/Details/5
@@ -27,7 +28,7 @@ namespace BlexDigital.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Proyecto proyecto = db.Proyectos.Find(id);
+            Proyecto proyecto = (from c in db.Proyectos where c.ProyectoId == id select c).Include(c => c.Cotizacion).FirstOrDefault();
             if (proyecto == null)
             {
                 return HttpNotFound();

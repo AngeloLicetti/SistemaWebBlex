@@ -26,7 +26,7 @@
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Inicio", "Inicio", "Home")</li>
                         <li>@Html.ActionLink("Cotizar", "MisSolicitudes", "SolCotizacions")</li>
-                        <li>@Html.ActionLink("Mis proyectos", "MisProyectos", "Proyectos")</li>
+                        <li>@Html.ActionLink("Mis proyectos", "MisProyectos", "Proyectoes")</li>
                     </ul>
                 }
                 @if (HttpContext.Current.User.IsInRole("Admin")|| HttpContext.Current.User.IsInRole("PM"))
@@ -35,7 +35,7 @@
                         <li>@Html.ActionLink("Inicio", "Inicio", "Home")</li>
                         <li>@Html.ActionLink("Solicitudes de cotizacion", "Index", "SolCotizacions")</li>
                         <li>@Html.ActionLink("Validar adelantos", "ValidarAdelantos", "Cotizacions")</li>
-                        <li>@Html.ActionLink("Proyectos", "Index", "Proyectos")</li>
+                        <li>@Html.ActionLink("Proyectos", "Index", "Proyectoes")</li>
                     </ul>
                 }
                 @Html.Partial("_LoginPartial")

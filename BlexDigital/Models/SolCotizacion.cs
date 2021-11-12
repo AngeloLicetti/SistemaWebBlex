@@ -10,6 +10,7 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Models
 {
     public class SolCotizacion
     {
+        [Display(Name = "Id de la solicitud")]
         public int SolCotizacionId { get; set; }
 
         [Display(Name = "Nombre de la empresa")]
@@ -39,7 +40,11 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Models
         public string Estado { get; set; }
         [Display(Name = "Fecha de la solicitud")]
         public DateTime FechaSolicitud { get; set; }
-
+        [Display(Name = "Tipo de Web")]
+        public TipoDeWeb TipoWeb { get; set; }
+        [Display(Name = "Detalles adicionales")]
+        [DataType(DataType.MultilineText)]
+        public string DetallesAdicionales { get; set; }
         public virtual ApplicationUser Cliente { get; set; }
 
         public SolCotizacion() { }

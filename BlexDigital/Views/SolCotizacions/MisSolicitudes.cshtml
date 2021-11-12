@@ -17,6 +17,8 @@
         <tr>
             <th>Acciones</th>
             <th>
+                @Html.DisplayNameFor(model => model.SolCotizacionId)
+            </th><th>
                 Estado
             </th>
             <th>
@@ -52,6 +54,10 @@
                     {
                         @Html.ActionLink("Ver Cotizacion", "VerCotizacion", new { solCotizacionId = item.SolCotizacionId })
                     }
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.SolCotizacionId)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Estado)

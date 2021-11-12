@@ -16,6 +16,12 @@
             Estado
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.SolCotizacionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaSolicitud)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.NombreEmpresa)
         </th>
         <th>
@@ -37,42 +43,48 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @if (item.Estado == "Pendiente")
-            {
-                @Html.ActionLink("Cotizar", "Cotizar", new { id = item.SolCotizacionId })
-            }
-            else
-            {
-                @Html.ActionLink("Detalles", "Details", new { id = item.SolCotizacionId })
-            }
-            @*@Html.ActionLink("Editar", "Edit", new { id=item.SolCotizacionId }) |*@
-            
-            @*@Html.ActionLink("Eliminar", "Delete", new { id = item.SolCotizacionId })*@
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombreEmpresa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CorreoDeEmpresa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TelefonoDeEmpresa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumeroPaginas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PaginaConCatalogo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CarritoDeCompras)
-        </td>
-    </tr>
+<tr>
+    <td>
+        @if (item.Estado == "Pendiente")
+        {
+            @Html.ActionLink("Cotizar", "Cotizar", new { id = item.SolCotizacionId })
+        }
+        else
+        {
+            @Html.ActionLink("Detalles", "Details", new { id = item.SolCotizacionId })
+        }
+        @*@Html.ActionLink("Editar", "Edit", new { id=item.SolCotizacionId }) |*@
+
+        @*@Html.ActionLink("Eliminar", "Delete", new { id = item.SolCotizacionId })*@
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Estado)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SolCotizacionId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FechaSolicitud)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NombreEmpresa)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CorreoDeEmpresa)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TelefonoDeEmpresa)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NumeroPaginas)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PaginaConCatalogo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CarritoDeCompras)
+    </td>
+</tr>
 }
 
 </table>

@@ -9,6 +9,7 @@ namespace BlexDigital.Models
 {
     public class Proyecto
     {
+        [Display(Name = "Id del proyecto")]
         public int ProyectoId { get; set; }
         [Display(Name = "Nombre del proyecto")]
         public string NombreProyecto { get; set; }

@@ -23,7 +23,7 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
             {
                 return RedirectToAction("MisSolicitudes");
             }
-            return View(db.SolCotizacions.Where(sc => sc.Estado == "Pendiente" || sc.Estado == "Cotizada").OrderByDescending(sc => sc.Estado).ToList());
+            return View(db.SolCotizacions.Where(sc => sc.Estado == "Pendiente" || sc.Estado == "Cotizada").OrderByDescending(sc => sc.Estado).ThenBy(x => x.FechaSolicitud).ToList());
         }
 
         // GET: SolCotizacions/MisSolicitudes
@@ -108,7 +108,7 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SolCotizacionId,NombreEmpresa,DescripcionDelNegocio,Mision,Vision,Direccion,CorreoDeEmpresa,TelefonoDeEmpresa,NumeroPaginas,PaginaConCatalogo,CarritoDeCompras, Cliente")] SolCotizacion solCotizacion)
+        public ActionResult Create([Bind(Include = "SolCotizacionId,NombreEmpresa,DescripcionDelNegocio,Mision,Vision,Direccion,CorreoDeEmpresa,TelefonoDeEmpresa,NumeroPaginas,PaginaConCatalogo,CarritoDeCompras, TipoWeb, DetallesAdicionales, Cliente")] SolCotizacion solCotizacion)
         {
             if (ModelState.IsValid)
             {
@@ -138,6 +138,8 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
                 SolCotizacion solCotizacion = (from sc in db.SolCotizacions where sc.SolCotizacionId == cotizacion.SolCotizacion.SolCotizacionId select sc).FirstOrDefault();
                 proyecto.NombreProyecto = solCotizacion.NombreEmpresa;
                 proyecto.FechaCreacion= DateTime.Now;
+                cotizacion = (from c in db.Cotizacions where c.CotizacionId== cotizacion.CotizacionId select c).FirstOrDefault();
+                proyecto.Cotizacion = cotizacion;
                 solCotizacion.Estado = "Validada";
                 db.Entry(solCotizacion).State = EntityState.Modified;
                 db.Proyectos.Add(proyecto);

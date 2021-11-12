@@ -1,5 +1,5 @@
 ﻿@model Sistema_de_gestion_comercial_Blex_Digital.Models.SolCotizacion
-
+@using BlexDigital.Models;
 @{
     ViewBag.Title = "Nueva Solicitud de Cotización";
 }
@@ -7,10 +7,10 @@
 <h2>Nueva Solicitud de Cotización</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
 <div class="form-horizontal">
     <h4>Completa los datos para la página web de tu empresa:</h4>
     <hr />
@@ -118,6 +118,61 @@
                 @Html.EditorFor(model => model.CarritoDeCompras)
                 @Html.ValidationMessageFor(model => model.CarritoDeCompras, "", new { @class = "text-danger" })
             </div>
+        </div>
+    </div>
+
+    <h2>Elija un estilo de página web</h2>
+    <div class="col-md-4">
+        @Html.RadioButtonFor(s => s.TipoWeb, TipoDeWeb.Ecommerce)@Html.Label("Ecommerce")<br />
+        <img src="~/UploadedFiles/Ecommerce.jpg" width="350" data-toggle="modal" data-target="#modalEcommerce"/>
+        <div id="modalEcommerce" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <iframe src="https://cleiaperu.com"
+                                width="1000" height="700" frameborder="1"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-4">
+        @Html.RadioButtonFor(s => s.TipoWeb, TipoDeWeb.SinglePage)@Html.Label("Web informativa de una sola página (single page)")<br />
+        <img src="~/UploadedFiles/SinglePage.jpg" width="350" data-toggle="modal" data-target="#modalSinglePage" />
+        <div id="modalSinglePage" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <iframe src="https://eygo.pe/"
+                                width="1000" height="700" frameborder="1"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        @Html.RadioButtonFor(s => s.TipoWeb, TipoDeWeb.MultiPage)@Html.Label("Web informativa con múltiples páginas")<br />
+        <img src="~/UploadedFiles/MultiPage.jpg" width="350" data-toggle="modal" data-target="#modalMultiPage" />
+        <div id="modalMultiPage" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <iframe src="https://igcertperu.com/"
+                                width="1000" height="700" frameborder="1"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Comentarios adicionales</p>
+            @Html.EditorFor(model => model.DetallesAdicionales, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DetallesAdicionales, "", new { @class = "text-danger" })
         </div>
     </div>
 
