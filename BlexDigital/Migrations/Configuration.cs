@@ -22,6 +22,7 @@ namespace BlexDigital.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+
             context.SolicitudesCotizacion.AddOrUpdate(
                 s => s.Id,
                   new SolicitudCotizacion { Id = 1, NombreEmpresa = "EyGO Delivery", Correo = "eygodelivery@gmail.com", Celular = "999888777", NumeroPaginas = 5, CarritoDeCompras = false },
@@ -57,7 +58,7 @@ namespace BlexDigital.Migrations
                 objUser.UserName = "angelo.licetti.00@gmail.com";
                 UserManager.Create(objUser, "panConPollo#2021");
             }
-            UserManager.AddToRole(objUser.Id, rolAdmin.Name);
+            //UserManager.AddToRole(objUser.Id, rolAdmin.Name);
         }
     }
 }
