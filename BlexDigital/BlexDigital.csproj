@@ -220,6 +220,14 @@
     <Compile Include="Migrations\202111191759138_dataAnnotations3.Designer.cs">
       <DependentUpon>202111191759138_dataAnnotations3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111191803029_dataAnnotations4.cs" />
+    <Compile Include="Migrations\202111191803029_dataAnnotations4.Designer.cs">
+      <DependentUpon>202111191803029_dataAnnotations4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111191810136_dataAnn5.cs" />
+    <Compile Include="Migrations\202111191810136_dataAnn5.Designer.cs">
+      <DependentUpon>202111191810136_dataAnn5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -382,6 +390,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111191759138_dataAnnotations3.resx">
       <DependentUpon>202111191759138_dataAnnotations3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111191803029_dataAnnotations4.resx">
+      <DependentUpon>202111191803029_dataAnnotations4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111191810136_dataAnn5.resx">
+      <DependentUpon>202111191810136_dataAnn5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -55,6 +55,9 @@ namespace BlexDigital.Migrations
             {
                 objUser = new ApplicationUser();
                 objUser.Email = "angelo.licetti.00@gmail.com";
+                objUser.Nombre = "Angelo";
+                objUser.Dni = "72630777";
+                objUser.Celular = "972630777";
                 objUser.UserName = "angelo.licetti.00@gmail.com";
                 UserManager.Create(objUser, "panConPollo#2021");
             }

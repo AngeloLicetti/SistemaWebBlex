@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -18,8 +19,13 @@ namespace BlexDigital.Models
             return userIdentity;
         }
 
+        [Required(ErrorMessage = "El campo {0} es obligatorio")]
+        [RegularExpression(@"([1-9]{1}[0-9]{7})", ErrorMessage = "El DNI debe ser un número de ocho dígitos")]
         public string Dni { get; set; }
+        [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string Nombre { get; set; }
+        [Required(ErrorMessage = "El campo {0} es obligatorio")]
+        [RegularExpression(@"([1-9]{1}[0-9]{8})", ErrorMessage = "El celular debe ser un número de nueve dígitos")]
         public string Celular { get; set; }
     }
 
