@@ -23,6 +23,12 @@
             @Html.DisplayNameFor(model => model.NombreProyecto)
         </th>
         <th>
+            Cliente
+        </th>
+        <th>
+            Diseñador
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.FechaCreacion)
         </th>
     </tr>
@@ -30,9 +36,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProyectoId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProyectoId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProyectoId })
+            @Html.ActionLink("Details", "Details", new { id = item.ProyectoId }) |
+            @if (item.Estado == "Inicial")
+            {
+                @Html.ActionLink("Asignar diseñador", "AsignarDisenador", new { id = item.ProyectoId })
+            }
+            else if (item.Estado == "Asignado")
+            {
+                
+            }
         </td>
         @*<td>
             @Html.DisplayFor(modelItem => item.Cotizacion.SolCotizacion.SolCotizacionId)
@@ -42,6 +54,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NombreProyecto)
+        </td>
+        <td>
+            @Html.DisplayFor(modetItem => item.Cliente.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modetItem => item.Trabajador.Nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FechaCreacion)

@@ -58,10 +58,10 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
         }
 
         // GET: Cotizacions/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // GET: Cotizacions/Cotizar/5
         public ActionResult Cotizar(int? solCotizacionId)
@@ -99,25 +99,25 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CotizacionId,Mensaje,Dias,PrecioTotal, SolCotizacion, DetalleCotiacions")] Cotizacion cotizacion)
+        public ActionResult Create2([Bind(Include = "CotizacionId,Mensaje,Dias,PrecioTotal, SolCotizacion, DetalleCotiacions, SolCotizacion.NombreEmpresa, SolCotizacion.DescripcionDelNegocio, SolCotizacion.Mision, SolCotizacion.Vision, SolCotizacion.Direccion, SolCotizacion.CorreoDeEmpresa, SolCotizacion.TelefonoDeEmpresa, SolCotizacion.NumeroPaginas, SolCotizacion.PaginaConCatalogo, SolCotizacion.CarritoDeCompras, SolCotizacion.TipoWeb, SolCotizacion.DetallesAdicionales")] Cotizacion model)
         {
             if (ModelState.IsValid)
             {
-                cotizacion.FechaCotizacion = DateTime.Now;
-                SolCotizacion solCotizacion = (from sc in db.SolCotizacions where sc.SolCotizacionId == cotizacion.SolCotizacion.SolCotizacionId select sc).FirstOrDefault(); ;
+                model.FechaCotizacion = DateTime.Now;
+                SolCotizacion solCotizacion = (from sc in db.SolCotizacions where sc.SolCotizacionId == model.SolCotizacion.SolCotizacionId select sc).FirstOrDefault(); ;
                 solCotizacion.Estado = "Cotizada";
-                cotizacion.PrecioTotal = 0;
-                foreach (DetalleCotizacion detalle in cotizacion.DetalleCotiacions)
+                model.PrecioTotal = 0;
+                foreach (DetalleCotizacion detalle in model.DetalleCotiacions)
                 {
-                    cotizacion.PrecioTotal += detalle.PrecioDetalle;
+                    model.PrecioTotal += detalle.PrecioDetalle;
                 }
-                cotizacion.SolCotizacion = solCotizacion;
-                db.Cotizacions.Add(cotizacion);
+                model.SolCotizacion = solCotizacion;
+                db.Cotizacions.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index", "SolCotizacions");
             }
 
-            return View(cotizacion);
+            return View(model);
         }
 
         // GET: Cotizacions/Edit/5

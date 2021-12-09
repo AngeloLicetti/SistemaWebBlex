@@ -6,7 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using BlexDigital.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace BlexDigital.Controllers
 {
@@ -19,6 +22,13 @@ namespace BlexDigital.Controllers
         {
             List<Proyecto> proyectos = db.Proyectos.Include(p => p.Cotizacion).ToList();
             return View(proyectos);
+        }
+
+        // GET: Proyectoes/MisProyectosCliente
+        public ActionResult MisProyectosCliente()
+        {
+            string userName = HttpContext.User.Identity.Name;
+            return View(db.Proyectos.Where(x => x.Cliente.UserName == userName).ToList());
         }
 
         // GET: Proyectoes/Details/5
@@ -72,6 +82,55 @@ namespace BlexDigital.Controllers
                 return HttpNotFound();
             }
             return View(proyecto);
+        }
+        
+
+        // GET: Proyectoes/Edit/5
+        public ActionResult AsignarDisenador(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Proyecto proyecto = db.Proyectos.Find(id);
+            if (proyecto == null)
+            {
+                return HttpNotFound();
+            }
+            AsignarDiseñadorViewModel viewModel = new AsignarDiseñadorViewModel();
+            viewModel.Proyecto = proyecto;
+            //string[] trabajadoresNames = Roles.GetUsersInRole("Trabajador");
+            IdentityRole roleTrabajador = (from r in db.Roles where r.Name == "Trabajador" select r).FirstOrDefault();
+            var roleUserIdsQuery = from role in db.Roles
+                                   where role.Name == "Trabajador"
+                                   from user in role.Users
+                                   select user.UserId;
+            var users = db.Users.Where(u => roleUserIdsQuery.Contains(u.Id)).ToList();
+            viewModel.Trabajadores = users;
+            return View(viewModel);
+        }
+
+        public ActionResult Asignar(string workerId, int? proyectoId)
+        {
+            if (workerId == null || proyectoId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ApplicationUser worker = db.Users.Find(workerId);
+            if (worker == null)
+            {
+                return HttpNotFound();
+            }
+            Proyecto proyecto = db.Proyectos.Find(proyectoId);
+            if (proyecto == null)
+            {
+                return HttpNotFound();
+            }
+            proyecto.Trabajador = worker;
+            proyecto.Estado = "Asignado";
+            db.Proyectos.Add(proyecto);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // POST: Proyectoes/Edit/5

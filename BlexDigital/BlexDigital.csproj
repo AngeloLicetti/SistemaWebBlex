@@ -228,8 +228,37 @@
     <Compile Include="Migrations\202111191810136_dataAnn5.Designer.cs">
       <DependentUpon>202111191810136_dataAnn5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112090546019_noValidationUsers.cs" />
+    <Compile Include="Migrations\202112090546019_noValidationUsers.Designer.cs">
+      <DependentUpon>202112090546019_noValidationUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112090622470_noValidationAnything.cs" />
+    <Compile Include="Migrations\202112090622470_noValidationAnything.Designer.cs">
+      <DependentUpon>202112090622470_noValidationAnything.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112090635073_userProyectRelation.cs" />
+    <Compile Include="Migrations\202112090635073_userProyectRelation.Designer.cs">
+      <DependentUpon>202112090635073_userProyectRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112090736234_estadoProyect.cs" />
+    <Compile Include="Migrations\202112090736234_estadoProyect.Designer.cs">
+      <DependentUpon>202112090736234_estadoProyect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112090902450_proyectoUpdated.cs" />
+    <Compile Include="Migrations\202112090902450_proyectoUpdated.Designer.cs">
+      <DependentUpon>202112090902450_proyectoUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112091115515_disenoElegido.cs" />
+    <Compile Include="Migrations\202112091115515_disenoElegido.Designer.cs">
+      <DependentUpon>202112091115515_disenoElegido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112091235224_urlProyecto.cs" />
+    <Compile Include="Migrations\202112091235224_urlProyecto.Designer.cs">
+      <DependentUpon>202112091235224_urlProyecto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AsignarDiseñadorViewModel.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Cotizacion.cs" />
     <Compile Include="Models\DetalleCotizacion.cs" />
@@ -339,8 +368,15 @@
     <Content Include="Views\Proyectoes\Create.cshtml" />
     <Content Include="Views\Proyectoes\Delete.cshtml" />
     <Content Include="Views\Proyectoes\Details.cshtml" />
-    <Content Include="Views\Proyectoes\Edit.cshtml" />
     <Content Include="Views\Proyectoes\Index.cshtml" />
+    <Content Include="Views\Account\RegisterWorker.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Proyectoes\MisProyectos_Cliente.cshtml" />
+    <Content Include="Views\Proyectoes\MisProyectos.cshtml" />
+    <Content Include="Views\Proyectoes\MisProyectosCliente.cshtml" />
+    <Content Include="Views\Proyectoes\View.cshtml" />
+    <Content Include="Views\Proyectoes\EditProyect.cshtml" />
+    <Content Include="Views\Proyectoes\AsignarDisenador.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -396,6 +432,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111191810136_dataAnn5.resx">
       <DependentUpon>202111191810136_dataAnn5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112090546019_noValidationUsers.resx">
+      <DependentUpon>202112090546019_noValidationUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112090622470_noValidationAnything.resx">
+      <DependentUpon>202112090622470_noValidationAnything.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112090635073_userProyectRelation.resx">
+      <DependentUpon>202112090635073_userProyectRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112090736234_estadoProyect.resx">
+      <DependentUpon>202112090736234_estadoProyect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112090902450_proyectoUpdated.resx">
+      <DependentUpon>202112090902450_proyectoUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112091115515_disenoElegido.resx">
+      <DependentUpon>202112091115515_disenoElegido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112091235224_urlProyecto.resx">
+      <DependentUpon>202112091235224_urlProyecto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

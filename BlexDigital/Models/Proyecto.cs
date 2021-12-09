@@ -15,6 +15,24 @@ namespace BlexDigital.Models
         public string NombreProyecto { get; set; }
         [Display(Name = "Fecha de creación")]
         public DateTime FechaCreacion { get; set; }
+        public string Estado { get; set; }
+
+        [Display(Name = "Propuesta de diseño 1")]
+        public string Diseno1 { get; set; }
+
+        [Display(Name = "Propuesta de diseño 2")]
+        public string Diseno2 { get; set; }
+
+        [Display(Name = "Propuesta de diseño 3")]
+        public string Diseno3 { get; set; }
+
+        [Display(Name = "Propuesta de diseño elegida")]
+        public int DisenoElegido { get; set; }
+
+        public string UrlProyecto { get; set; }
         public virtual Cotizacion Cotizacion { get; set; }
+        public virtual ApplicationUser Cliente { get; set; }
+
+        public virtual ApplicationUser Trabajador { get; set; }
     }
 }

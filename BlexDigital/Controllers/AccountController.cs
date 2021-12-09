@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using BlexDigital.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace BlexDigital.Controllers
 {
@@ -22,6 +24,13 @@ namespace BlexDigital.Controllers
 
         public AccountController()
         {
+        }
+
+        // GET: Accounts
+        public ActionResult Index()
+        {
+            List<ApplicationUser> users = db.Users.ToList();
+            return View(users);
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -143,6 +152,38 @@ namespace BlexDigital.Controllers
         {
             return View();
         }
+
+        //
+        // GET: /Account/RegisterWorker
+        [AllowAnonymous]
+        public ActionResult RegisterWorker()
+        {
+            return View();
+        }
+
+        // POST: /Account/Register
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterWorker(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Nombre = model.Nombre };
+                IdentityUserRole userRole = new IdentityUserRole { UserId = user.Id, RoleId = "3" };
+                user.Roles.Add(userRole);
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+                AddErrors(result);
+            }
+
+            // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
+            return View(model);
+        }
+
 
         //
         // POST: /Account/Register

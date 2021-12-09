@@ -1,0 +1,109 @@
+﻿@model BlexDigital.Models.AsignarDiseñadorViewModel
+
+@{
+    ViewBag.Title = "AsignarDisenador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AsignarDisenador</h2>
+
+<div>
+    <h4>Proyecto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Proyecto.NombreProyecto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proyecto.NombreProyecto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proyecto.FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proyecto.FechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proyecto.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proyecto.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proyecto.Diseno1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proyecto.Diseno1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proyecto.Diseno2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proyecto.Diseno2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proyecto.Diseno3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proyecto.Diseno3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proyecto.DisenoElegido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proyecto.DisenoElegido)
+        </dd>
+
+    </dl>
+
+    <h2>Asginar Diseñador</h2>
+    <table class="table">
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Celular
+            </th>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Trabajadores)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Asignar", "Asignar", new { workerId = item.Id , proyectoId = Model.Proyecto.ProyectoId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -26,16 +26,23 @@
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Inicio", "Inicio", "Home")</li>
                         <li>@Html.ActionLink("Cotizar", "MisSolicitudes", "SolCotizacions")</li>
-                        <li>@Html.ActionLink("Mis proyectos", "MisProyectos", "Proyectoes")</li>
+                        <li>@Html.ActionLink("Mis proyectos", "MisProyectosCliente", "Proyectoes")</li>
                     </ul>
                 }
-                @if (HttpContext.Current.User.IsInRole("Admin")|| HttpContext.Current.User.IsInRole("PM"))
+                @if (HttpContext.Current.User.IsInRole("Trabajador"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Diseños pendientes", "MisProyectosTrabajador", "Proyectoes")</li>
+                    </ul>
+                }
+                @if (HttpContext.Current.User.IsInRole("Admin") || HttpContext.Current.User.IsInRole("PM"))
                 {
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Inicio", "Inicio", "Home")</li>
                         <li>@Html.ActionLink("Solicitudes de cotizacion", "Index", "SolCotizacions")</li>
                         <li>@Html.ActionLink("Validar adelantos", "ValidarAdelantos", "Cotizacions")</li>
                         <li>@Html.ActionLink("Proyectos", "Index", "Proyectoes")</li>
+                        <li>@Html.ActionLink("Usuarios", "Index", "Account")</li>
                     </ul>
                 }
                 @Html.Partial("_LoginPartial")

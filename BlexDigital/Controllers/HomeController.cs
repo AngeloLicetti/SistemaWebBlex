@@ -24,6 +24,10 @@ namespace BlexDigital.Controllers
             {
                 return RedirectToAction("Index", "SolCotizacions");
             }
+            else if (User.IsInRole("Trabajador"))
+            {
+                return RedirectToAction("Index", "Proyectoes");
+            }
             else
             {
                 return View();

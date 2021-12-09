@@ -13,11 +13,11 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Models
         [Display(Name = "Id de la solicitud")]
         public int SolCotizacionId { get; set; }
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
+        
         [Display(Name = "Nombre de la empresa")]
         public string NombreEmpresa { get; set; }
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
+        
         [Display(Name = "Descripción del negocio")]
         [DataType(DataType.MultilineText)]
         public string DescripcionDelNegocio { get; set; }
@@ -29,15 +29,14 @@ namespace Sistema_de_gestion_comercial_Blex_Digital.Models
         public string Vision { get; set; }
         [Display(Name = "Dirección")]
         public string Direccion { get; set; }
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
+        
         [Display(Name = "Correo de la empresa")]
         public string CorreoDeEmpresa { get; set; }
-        [StringLength(9, ErrorMessage = "El teléfono debe ser un número de 9 dígitos")]
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
+        
         [Display(Name = "Teléfono de la empresa")]
         [DataType(DataType.PhoneNumber)]
         public string TelefonoDeEmpresa { get; set; }
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
+        
         [Display(Name = "Número de páginas para su sitio web")]
         public int NumeroPaginas { get; set; }
         [Display(Name = "Desea página con catálogo de sus productos")]

@@ -40,7 +40,8 @@ namespace BlexDigital.Migrations
             context.Roles.AddOrUpdate(
                 u => u.Id,
                     new IdentityRole { Id = "1", Name = "Admin"},
-                    new IdentityRole { Id = "2", Name = "Cliente" }
+                    new IdentityRole { Id = "2", Name = "Cliente" },
+                    new IdentityRole { Id = "3", Name = "Trabajador" }
             );
 
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));

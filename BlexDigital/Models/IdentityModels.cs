@@ -19,13 +19,8 @@ namespace BlexDigital.Models
             return userIdentity;
         }
 
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        [RegularExpression(@"([1-9]{1}[0-9]{7})", ErrorMessage = "El DNI debe ser un número de ocho dígitos")]
         public string Dni { get; set; }
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string Nombre { get; set; }
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        [RegularExpression(@"([1-9]{1}[0-9]{8})", ErrorMessage = "El celular debe ser un número de nueve dígitos")]
         public string Celular { get; set; }
     }
 
@@ -48,5 +43,6 @@ namespace BlexDigital.Models
         public DbSet<Cotizacion> Cotizacions { get; set; }
         public DbSet<DetalleCotizacion> DetalleCotizacions { get; set; }
         public DbSet<Proyecto> Proyectos { get; set; }
+
     }
 }
