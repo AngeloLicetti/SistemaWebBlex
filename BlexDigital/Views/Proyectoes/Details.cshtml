@@ -10,6 +10,12 @@
 <div>
     <h4>Proyecto</h4>
     <hr />
+    @if (Model.Estado == "Finalizado")
+    {
+        <base href=""/>
+        <a  href="@Model.UrlProyecto" target="_blank">Visita el proyecto finalizado</a>
+    }
+    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.NombreProyecto)
@@ -87,7 +93,7 @@
 
     if (Model.Estado == "Implementación" && HttpContext.Current.User.IsInRole("Admin"))
     {
-        using (Html.BeginForm("ConfirmarFin"))
+        using (Html.BeginForm("ConfirmarFin","Proyectoes"))
         {
             <hr />
             <hr />
@@ -112,12 +118,7 @@
         }
     }
 
-    if (Model.Estado == "Finalizado")
-    {
-        <div class="col-md-offset-2 col-md-10">
-            <a href="Url.Content(Model.File)" target="_blank">Visita el proyecto finalizado</a>
-        </div>
-    }
+    
 
 
     if (Model.DisenoElegido > 0)

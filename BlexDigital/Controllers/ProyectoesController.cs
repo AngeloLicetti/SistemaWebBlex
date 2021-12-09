@@ -158,9 +158,9 @@ namespace BlexDigital.Controllers
                 p.Estado = "Finalizado";
                 db.Entry(p).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("MisProyectosCliente");
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("MisProyectosCliente");
+            return RedirectToAction("Index");
         }
         
 
