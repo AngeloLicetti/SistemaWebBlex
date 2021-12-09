@@ -1,0 +1,255 @@
+﻿@model BlexDigital.Models.Proyecto
+
+@{
+    ViewBag.Title = "EditProyect";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EditProyect</h2>
+
+@using (Html.BeginForm("ProponerDisenos", "Proyectoes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Proyecto</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ProyectoId)
+
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreProyecto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreProyecto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+    </dl>
+
+    <div>
+        <h4>Cotizacion</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <h2>DATOS DE LA SOLICITUD</h2>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.Cliente.Dni)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.Cliente.Nombre)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.Cliente.Email)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.Cliente.Celular)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.SolCotizacion.NombreEmpresa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.DescripcionDelNegocio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.SolCotizacion.DescripcionDelNegocio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.Mision)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.SolCotizacion.Mision)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.Vision)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.SolCotizacion.Vision)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.Direccion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.SolCotizacion.Direccion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.CorreoDeEmpresa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.SolCotizacion.CorreoDeEmpresa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.TelefonoDeEmpresa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.SolCotizacion.TelefonoDeEmpresa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.NumeroPaginas)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.SolCotizacion.NumeroPaginas)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.PaginaConCatalogo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.SolCotizacion.PaginaConCatalogo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.CarritoDeCompras)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.SolCotizacion.CarritoDeCompras)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.TipoWeb)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.SolCotizacion.TipoWeb)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.DetallesAdicionales)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.SolCotizacion.DetallesAdicionales)
+            </dd>
+        </dl>
+        <dl class="dl-horizontal">
+            <h2>DATOS DE LA COTIZACIÓN</h2>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.Mensaje)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.Mensaje)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.Dias)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.Dias)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.PrecioTotal)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.PrecioTotal)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cotizacion.FechaCotizacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cotizacion.FechaCotizacion)
+            </dd>
+
+        </dl>
+    </div>
+
+    @if (Model.Diseno1 != null)
+    {
+        <h2>PROPUESTAS DE DISEÑO</h2>
+
+        <div class="col-md-4">
+            <h4>PROPUESTA 1</h4>
+            <img src="@Url.Content(Model.Diseno1)" height="200" width="300" alt="Propuesta de diseño 1" width="500" height="600">
+        </div>
+        <div class="col-md-4">
+            <h4>PROPUESTA 2</h4>
+            <img src="@Url.Content(Model.Diseno2)" height="200" width="300" alt="Propuesta de diseño 2" width="500" height="600">
+        </div>
+        <div class="col-md-4">
+            <h4>PROPUESTA 3</h4>
+            <img src="@Url.Content(Model.Diseno3)" height="200" width="300" alt="Propuesta de diseño 3" width="500" height="600">
+        </div>
+    }
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Diseno1, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Diseno1, new { htmlAttributes = new { @class = "form-control", @type = "File" } })
+            @Html.ValidationMessageFor(model => model.Diseno1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Diseno2, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Diseno2, new { htmlAttributes = new { @class = "form-control", @type = "File" } })
+            @Html.ValidationMessageFor(model => model.Diseno2, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Diseno3, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Diseno3, new { htmlAttributes = new { @class = "form-control", @type = "File" } })
+            @Html.ValidationMessageFor(model => model.Diseno3, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10 text-success">
+            @ViewBag.FileStatus
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Cargar diseños" class="btn btn-default" />
+            @Html.ActionLink("Aceptar", "Index")
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

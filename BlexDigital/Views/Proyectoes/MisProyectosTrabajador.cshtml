@@ -1,0 +1,73 @@
+﻿@model IEnumerable<BlexDigital.Models.Proyecto>
+
+@{
+    ViewBag.Title = "Mis proyectos asignados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Proyectos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Acciones</th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.SolCotizacionId)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.ProyectoId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreProyecto)
+        </th>
+        <th>
+            Cliente
+        </th>
+        <th>
+            Diseñador
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.ProyectoId }) |
+                @if (item.Estado == "Inicial")
+                {
+
+                }
+                else if (item.Estado == "Asignado")
+                {
+                    @Html.ActionLink("Proponer diseños", "ProponerDisenos", new { id = item.ProyectoId })
+                    //@Html.ActionLink("Proponer diseños", "ProponerDisenos", new { id = item.ProyectoId }) |
+                    //@Html.ActionLink("Resignar diseñador", "AsignarDisenador", new { id = item.ProyectoId })
+                }
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Cotizacion.SolCotizacion.SolCotizacionId)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.ProyectoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreProyecto)
+            </td>
+            <td>
+                @Html.DisplayFor(modetItem => item.Cliente.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modetItem => item.Trabajador.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCreacion)
+            </td>
+        </tr>
+    }
+
+</table>

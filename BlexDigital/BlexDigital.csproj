@@ -377,6 +377,9 @@
     <Content Include="Views\Proyectoes\View.cshtml" />
     <Content Include="Views\Proyectoes\EditProyect.cshtml" />
     <Content Include="Views\Proyectoes\AsignarDisenador.cshtml" />
+    <Content Include="Views\Proyectoes\MisProyectosTrabajador.cshtml" />
+    <Content Include="Views\Proyectoes\ProponerDisenos.cshtml" />
+    <Content Include="Views\Proyectoes\ElegirDiseno.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

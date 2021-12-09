@@ -26,7 +26,7 @@ namespace BlexDigital.Controllers
             }
             else if (User.IsInRole("Trabajador"))
             {
-                return RedirectToAction("Index", "Proyectoes");
+                return RedirectToAction("MisProyectosTrabajador", "Proyectoes");
             }
             else
             {

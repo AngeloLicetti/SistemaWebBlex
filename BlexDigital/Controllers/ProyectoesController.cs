@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -10,6 +11,7 @@ using System.Web.Security;
 using BlexDigital.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Sistema_de_gestion_comercial_Blex_Digital.Models;
 
 namespace BlexDigital.Controllers
 {
@@ -29,6 +31,51 @@ namespace BlexDigital.Controllers
         {
             string userName = HttpContext.User.Identity.Name;
             return View(db.Proyectos.Where(x => x.Cliente.UserName == userName).ToList());
+        }
+
+        [HttpPost]
+        public ActionResult ProponerDisenos(Proyecto proyecto, HttpPostedFileBase Diseno1, HttpPostedFileBase Diseno2, HttpPostedFileBase Diseno3)
+        {
+            try
+            {
+
+                //Method 2 Get file details from HttpPostedFileBase class    
+
+                if (Diseno1 != null)
+                {
+                    string path;
+                    proyecto = db.Proyectos.Find(proyecto.ProyectoId);
+
+                    path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(Diseno1.FileName));
+                    Diseno1.SaveAs(path);
+                    proyecto.Diseno1 = "~/UploadedFiles/" + Diseno1.FileName;
+
+                    path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(Diseno2.FileName));
+                    Diseno2.SaveAs(path);
+                    proyecto.Diseno2 = "~/UploadedFiles/" + Diseno2.FileName;
+
+                    path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(Diseno3.FileName));
+                    Diseno3.SaveAs(path);
+                    proyecto.Diseno3 = "~/UploadedFiles/" + Diseno3.FileName;
+
+                    proyecto.Estado = "Diseño propuesto";
+                    db.Entry(proyecto).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                ViewBag.FileStatus = "File uploaded successfully.";
+            }
+            catch (Exception)
+            {
+                ViewBag.FileStatus = "Error while file uploading."; ;
+            }
+            return RedirectToAction("ProponerDisenos", proyecto.ProyectoId);
+        }
+
+        // GET: Proyectoes/MisProyectosCliente
+        public ActionResult MisProyectosTrabajador()
+        {
+            string userName = HttpContext.User.Identity.Name;
+            return View(db.Proyectos.Where(x => x.Trabajador.UserName == userName).ToList());
         }
 
         // GET: Proyectoes/Details/5
@@ -83,7 +130,56 @@ namespace BlexDigital.Controllers
             }
             return View(proyecto);
         }
+
+        // GET: Proyectoes/ElegirDiseno/5
+        [HttpPost]
+        public ActionResult Details(Proyecto proyecto)
+        {
+            if (ModelState.IsValid)
+            {
+                Proyecto p = (from c in db.Proyectos where c.ProyectoId == proyecto.ProyectoId select c).Include(c => c.Cotizacion).FirstOrDefault();
+                p.DisenoElegido = proyecto.DisenoElegido;
+                p.Estado = "Implementación";
+                db.Entry(p).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("MisProyectosCliente");
+            }
+            return RedirectToAction("MisProyectosCliente");
+        }
+
+        // GET: Proyectoes/ElegirDiseno/5
+        [HttpPost]
+        public ActionResult ConfirmarFin(Proyecto proyecto)
+        {
+            if (ModelState.IsValid)
+            {
+                Proyecto p = (from c in db.Proyectos where c.ProyectoId == proyecto.ProyectoId select c).Include(c => c.Cotizacion).FirstOrDefault();
+                p.UrlProyecto = proyecto.UrlProyecto;
+                p.Estado = "Finalizado";
+                db.Entry(p).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("MisProyectosCliente");
+            }
+            return RedirectToAction("MisProyectosCliente");
+        }
         
+
+
+        // GET: Proyectoes/Edit/5
+        public ActionResult ProponerDisenos(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Proyecto proyecto = db.Proyectos.Find(id);
+            if (proyecto == null)
+            {
+                return HttpNotFound();
+            }
+            return View(proyecto);
+        }
+
 
         // GET: Proyectoes/Edit/5
         public ActionResult AsignarDisenador(int? id)
