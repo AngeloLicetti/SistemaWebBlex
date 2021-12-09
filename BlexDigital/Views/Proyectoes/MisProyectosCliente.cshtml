@@ -11,8 +11,8 @@
     <tr>
         <th>Acciones</th>
         @*<th>
-                @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.SolCotizacionId)
-            </th>*@
+            @Html.DisplayNameFor(model => model.Cotizacion.SolCotizacion.SolCotizacionId)
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.ProyectoId)
         </th>
@@ -20,7 +20,13 @@
             @Html.DisplayNameFor(model => model.NombreProyecto)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            Cliente
+        </th>
+        <th>
+            Diseñador
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FechaCreacion)
@@ -43,9 +49,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.NombreProyecto)
             </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
             <td>
                 @Html.DisplayFor(modetItem => item.Cliente.Nombre)
             </td>
+        <td>
+            @Html.DisplayFor(modetItem => item.Trabajador.Nombre)
+        </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FechaCreacion)
             </td>
