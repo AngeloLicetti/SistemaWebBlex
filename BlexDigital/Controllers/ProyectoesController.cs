@@ -224,7 +224,7 @@ namespace BlexDigital.Controllers
             }
             proyecto.Trabajador = worker;
             proyecto.Estado = "Asignado";
-            db.Proyectos.Add(proyecto);
+            db.Entry(proyecto).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
